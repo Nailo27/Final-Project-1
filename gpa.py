@@ -14,15 +14,14 @@ def math(x):
     total_gpa = 0.00
     length = len(nums)
 
-    for j in range(len(nums)):
-        nums[j] = float(nums[j])
-
     for i in range(len(nums)):
         try:
             """
             Determines whether the value is over or under a certain amount.
             Once it finds that value, it adds a certain value to total_gpa
             """
+            nums[i] = float(nums[i])
+            print(nums[i])
             if nums[i] >= 90:
                 if 93 <= nums[i]:
                     total_gpa += 4.0
@@ -51,8 +50,11 @@ def math(x):
                 elif 65 <= nums[i] < 67:
                     total_gpa += 1.0
 
-            elif nums[i] < 65:
+            elif 0 < nums[i] < 65:
                 total_gpa += 0
+
+            elif 0 > nums[i]:
+                raise TypeError
 
         except 0 > nums[i]:
             raise TypeError
