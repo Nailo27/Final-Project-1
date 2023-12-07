@@ -21,7 +21,6 @@ def math(x):
             Once it finds that value, it adds a certain value to total_gpa
             """
             nums[i] = float(nums[i])
-            print(nums[i])
             if nums[i] >= 90:
                 if 93 <= nums[i]:
                     total_gpa += 4.0
