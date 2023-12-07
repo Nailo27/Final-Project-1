@@ -5,8 +5,9 @@ def math(x):
     """
     Obtains the list from the gui and names it nums
     total_gpa is set to 0.00
-    The first for loop ensures that the list of grades, nums, are all floats
-    The second for loop checks what the grade would be then adds that score to the gpa
+    The for loop turns the values from nums to floats
+    The try/except ensures that it is greater than 0 and a number.
+        Once that's true, then it adds a gpa based on what your grade was.
     Finally, the total_gpa is divided by the length of nums and is returned.
     :param x: The list of grades
     """
@@ -15,12 +16,13 @@ def math(x):
     length = len(nums)
 
     for i in range(len(nums)):
+        nums[i] = float(nums[i])
+
         try:
             """
             Determines whether the value is over or under a certain amount.
             Once it finds that value, it adds a certain value to total_gpa
             """
-            nums[i] = float(nums[i])
             if nums[i] >= 90:
                 if 93 <= nums[i]:
                     total_gpa += 4.0
@@ -57,6 +59,9 @@ def math(x):
 
         except 0 > nums[i]:
             raise TypeError
+
+        except isinstance(nums[i], str):
+            raise ValueError
 
     total_gpa = total_gpa / (len(nums))
     calculated_gpa = round(total_gpa, 3)
